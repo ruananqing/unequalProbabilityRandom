@@ -6,11 +6,38 @@ module.exports = function unequalProbabilityRandom(options) {
 	let executedStr = '';
 	let result = '';
 
+	function findLongestValueLength(array) {
+	    let len = array.length;
+	    let valueLengths = [];
+
+	    for (let i = 0; i < len; i++) {
+	        valueLengths[i] = array[i].toString().length;
+	    }
+	    
+	    function findMaximum(arr) {
+	        let maximum = arr[0];
+	        arr.forEach(element => {
+	            if (element > maximum) {
+	                maximum = element;
+	            }
+	        });
+	        return maximum;
+	    }
+
+	    let longestValueLength = findMaximum(valueLengths);
+
+	    return longestValueLength;
+	}
+	 
+	let powerNum = findLongestValueLength(values);
+
+	let coefficient = 10**powerNum;
+
 	values.forEach(prob => {
-		totalProb += prob;
+		totalProb += prob * coefficient;
     });
     
-	if (totalProb != 1) {
+	if (totalProb != 1 * coefficient) {
 		throw new Error("the options' total probability is unequal to 1");
 		return null;
 	}
