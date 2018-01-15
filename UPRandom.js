@@ -3,7 +3,7 @@ module.exports = function unequalProbabilityRandom(options) {
 	let values = Object.values(options);
 	let len = keys.length;
 	let totalProb = 0;
-	let executedStr = '';
+	// let executedStr = '';
 	let result = '';
 
 	function findLongestValueLength(array) {
@@ -66,6 +66,8 @@ module.exports = function unequalProbabilityRandom(options) {
 		
 		return function() {
 			let probability = Math.random();
+
+			let executedStr = '';
 			
 			for (let i = 0; i < len; i++) {
 				executedStr += `
@@ -81,6 +83,8 @@ module.exports = function unequalProbabilityRandom(options) {
 	} else {
 		return function() {
 			let probability = Math.random();
+
+			let executedStr = '';
 			
 			for (let i = 0; i < len; i++) {
 				executedStr += `
