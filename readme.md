@@ -1,6 +1,6 @@
-# usage:
+# Usage:
 ```js
-const uprandomFun = require('./UPRandom');
+const uprandomFun = require('./unequalProbabilityRandom');
 
 // when options like this,  you will get the random string(options' keys) with unequal probability
 // note: the summation(total probability) of the options' values(probabilitys) should be a 1 when each added
@@ -45,7 +45,7 @@ console.log({
 });     //similar to 0.1, 0.2, 0.3, 0.4
 
 
-// when options like this,  you will get the random float number(numbers in options' keys' area: 20-90) with unequal probability
+// when options like this,  you will get the random float number(numbers in options' keys' area: 20-9999) with unequal probability
 // note: the summation(total probability) of the options' values(probabilitys) should be a 1 when each added
 let options2 = {
     '20-30': 0.05,
@@ -57,7 +57,7 @@ let options2 = {
 
 const uprandom2 = uprandomFun(options2);
 
-uprandom2(); //return a float number(in 20-90) with unequal probability in different area
+uprandom2(); //return a float number(in 20-9999) with unequal probability in different area
 
 let Area1times = 0;
 let Area2times = 0;
