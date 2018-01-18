@@ -1,6 +1,6 @@
 # Usage:
 ```js
-const uprandomFun = require('./unequalprobabilityrandom');
+const uprandomFun = require('unequalprobabilityrandom');
 
 // when options like this,  you will get the random string(options' keys) with unequal probability
 // note: the summation(total probability) of the options' values(probabilitys) should be a 1 when each added
