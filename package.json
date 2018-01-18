@@ -2,7 +2,7 @@
   "name": "unequalprobabilityrandom",
   "version": "0.0.1",
   "description": "a package for returning a random of unequal probability when you input what you want",
-  "main": "UPRandom.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
