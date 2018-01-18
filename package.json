@@ -1,6 +1,6 @@
 {
   "name": "unequalprobabilityrandom",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "a package for returning a random of unequal probability when you input what you want",
   "main": "index.js",
   "scripts": {
