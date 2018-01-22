@@ -35,7 +35,7 @@ module.exports = function unequalProbabilityRandom(options) {
 
 	values.forEach(prob => {
 		totalProb += prob * coefficient;
-    });
+    	});
     
 	if (totalProb != 1 * coefficient) {
 		throw new Error("the options' total probability is unequal to 1");
