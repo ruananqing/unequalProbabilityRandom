@@ -7,36 +7,36 @@ module.exports = function unequalProbabilityRandom(options) {
 	let result = '';
 
 	function findLongestValueLength(array) {
-	    let len = array.length;
-	    let valueLengths = [];
+		let len = array.length;
+		let valueLengths = [];
 
-	    for (let i = 0; i < len; i++) {
-	        valueLengths[i] = array[i].toString().length;
-	    }
-	    
-	    function findMaximum(arr) {
-	        let maximum = arr[0];
-	        arr.forEach(element => {
-	            if (element > maximum) {
-	                maximum = element;
-	            }
-	        });
-	        return maximum;
-	    }
+		for (let i = 0; i < len; i++) {
+			valueLengths[i] = array[i].toString().length;
+		}
 
-	    let longestValueLength = findMaximum(valueLengths);
+		function findMaximum(arr) {
+			let maximum = arr[0];
+			arr.forEach(element = >{
+				if (element > maximum) {
+					maximum = element;
+				}
+			});
+			return maximum;
+		}
 
-	    return longestValueLength;
+		let longestValueLength = findMaximum(valueLengths);
+
+		return longestValueLength;
 	}
-	 
+
 	let powerNum = findLongestValueLength(values);
 
-	let coefficient = 10**powerNum;
+	let coefficient = 10 * *powerNum;
 
-	values.forEach(prob => {
+	values.forEach(prob = >{
 		totalProb += prob * coefficient;
-    	});
-    
+	});
+
 	if (totalProb != 1 * coefficient) {
 		throw new Error("the options' total probability is unequal to 1");
 		return null;
@@ -60,21 +60,30 @@ module.exports = function unequalProbabilityRandom(options) {
 				boundarys[i] = parseFloat(keys[i].slice(0, minusCharIndex));
 			} else {
 				minusCharIndex = keys[i - 1].indexOf('-');
-				boundarys[i] = parseFloat(keys[i -1].slice(minusCharIndex + 1));
+				boundarys[i] = parseFloat(keys[i - 1].slice(minusCharIndex + 1));
 			}
 		}
-		
+
 		return function() {
 			let probability = Math.random();
 
 			let executedStr = '';
-			
+
 			for (let i = 0; i < len; i++) {
 				executedStr += `
-				if (probs[${i}] < probability && probability <= probs[${i + 1}]) {
-					result = boundarys[${i}] + Math.random() * (boundarys[${i + 1}] - boundarys[${i}]);
-				}
-				`
+				if (probs[$ {
+					i
+				}] < probability && probability <= probs[$ {
+					i + 1
+				}]) {
+					result = boundarys[$ {
+						i
+					}] + Math.random() * (boundarys[$ {
+						i + 1
+					}] - boundarys[$ {
+						i
+					}]);
+				}`
 			}
 			eval(executedStr);
 			return result;
@@ -85,17 +94,22 @@ module.exports = function unequalProbabilityRandom(options) {
 			let probability = Math.random();
 
 			let executedStr = '';
-			
+
 			for (let i = 0; i < len; i++) {
 				executedStr += `
-				if (probs[${i}] < probability && probability <= probs[${i + 1}]) {
-					result = keys[${i}];
-				}
-				`
+				if (probs[$ {
+					i
+				}] < probability && probability <= probs[$ {
+					i + 1
+				}]) {
+					result = keys[$ {
+						i
+					}];
+				}`
 			}
 			eval(executedStr);
 			return result;
 		}
 	}
-	
+
 }
